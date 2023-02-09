@@ -1,6 +1,6 @@
 ﻿using Study.CleanArchitecture.Application.Interfaces;
 
-namespace Study.CleanArchitecture.Infrastructure.Services;
+namespace Study.CleanArchitecture.Infrastructure.Data.Services;
 
 public class DateTimeService : IDateTime
 {

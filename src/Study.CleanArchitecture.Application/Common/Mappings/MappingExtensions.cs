@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using CleanArchitecture.Application.Common.Models;
 using Microsoft.EntityFrameworkCore;
+using Study.CleanArchitecture.Application.Common.Models;
 
 namespace Study.CleanArchitecture.Application.Common.Mappings;
 

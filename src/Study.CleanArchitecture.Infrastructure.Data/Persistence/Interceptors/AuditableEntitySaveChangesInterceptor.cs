@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Study.CleanArchitecture.Application.Interfaces;
 using Study.CleanArchitecture.Domain.Common;
 
-namespace Study.CleanArchitecture.Infrastructure.Persistence.Interceptors;
+namespace Study.CleanArchitecture.Infrastructure.Data.Persistence.Interceptors;
 
 public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 {

@@ -2,7 +2,7 @@
 using CsvHelper.Configuration;
 using Study.CleanArchitecture.Application.Services.TodoLists.Queries.ExportTodos;
 
-namespace Study.CleanArchitecture.Infrastructure.Files.Maps;
+namespace Study.CleanArchitecture.Infrastructure.Shared.Files.Maps;
 
 public class TodoItemRecordMap : ClassMap<TodoItemRecord>
 {

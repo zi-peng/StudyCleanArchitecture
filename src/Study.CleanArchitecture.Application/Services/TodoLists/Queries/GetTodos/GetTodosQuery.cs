@@ -3,13 +3,11 @@ using AutoMapper.QueryableExtensions;
 using CleanArchitecture.Application.TodoLists.Queries.GetTodos;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Study.CleanArchitecture.Application.Common.Security;
 using Study.CleanArchitecture.Application.Interfaces;
 using Study.CleanArchitecture.Domain.Enums;
 
 namespace Study.CleanArchitecture.Application.Services.TodoLists.Queries.GetTodos;
 
-[Authorize]
 public record GetTodosQuery : IRequest<TodosVm>;
 
 public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>

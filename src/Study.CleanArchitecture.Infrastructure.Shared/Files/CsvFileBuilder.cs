@@ -2,9 +2,8 @@
 using CsvHelper;
 using Study.CleanArchitecture.Application.Interfaces;
 using Study.CleanArchitecture.Application.Services.TodoLists.Queries.ExportTodos;
-using Study.CleanArchitecture.Infrastructure.Files.Maps;
 
-namespace Study.CleanArchitecture.Infrastructure.Files;
+namespace Study.CleanArchitecture.Infrastructure.Data.Files;
 
 public class CsvFileBuilder : ICsvFileBuilder
 {

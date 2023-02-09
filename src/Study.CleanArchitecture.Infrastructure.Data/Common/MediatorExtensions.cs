@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Study.CleanArchitecture.Domain.Common;
 
-namespace Study.CleanArchitecture.Infrastructure.Common;
+namespace Study.CleanArchitecture.Infrastructure.Data.Common;
 
 public static class MediatorExtensions
 {
