@@ -6,7 +6,7 @@ using Study.CleanArchitecture.Application.Interfaces;
 namespace Study.CleanArchitecture.Application.Common.Behaviours;
 
 public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : notnull, IRequest<TResponse>
+    where TRequest : IRequest<TResponse>
 {
     private readonly Stopwatch _timer;
     private readonly ILogger<TRequest> _logger;

@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Study.CleanArchitecture.Infrastructure.Data\Study.CleanArchitecture.Infrastructure.Data.csproj" />
+      <ProjectReference Include="..\Study.CleanArchitecture.Infrastructure.Shared\Study.CleanArchitecture.Infrastructure.Shared.csproj" />
     </ItemGroup>
 
 </Project>

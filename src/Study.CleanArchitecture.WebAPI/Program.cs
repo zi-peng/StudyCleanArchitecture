@@ -1,6 +1,7 @@
 using Study.CleanArchitecture.Application;
 using Study.CleanArchitecture.Infrastructure.Data;
 using Study.CleanArchitecture.Infrastructure.Data.Persistence;
+using Study.CleanArchitecture.Infrastructure.Shared;
 using Study.CleanArchitecture.WebAPI;
 using Study.CleanArchitecture.WebAPI.Const;
 
@@ -12,8 +13,11 @@ builder.Services.AddControllers();
 builder.Services.AddWebApiServices();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureSharedServices(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+
 
 var app = builder.Build();
 

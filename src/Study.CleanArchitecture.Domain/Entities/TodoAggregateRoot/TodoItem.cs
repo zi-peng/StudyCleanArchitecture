@@ -2,7 +2,7 @@
 using Study.CleanArchitecture.Domain.Enums;
 using Study.CleanArchitecture.Domain.Events;
 
-namespace Study.CleanArchitecture.Domain.Entities;
+namespace Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
 
 public class TodoItem : BaseAuditableEntity
 {

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Study.CleanArchitecture.Application.Interfaces;
 using Study.CleanArchitecture.Domain.Entities;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
 using Study.CleanArchitecture.Infrastructure.Data.Common;
 using Study.CleanArchitecture.Infrastructure.Data.Persistence.Interceptors;
 
@@ -24,7 +25,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
     }
 
-    public DbSet<TodoList> TodoLists => Set<TodoList>();
+    public DbSet<TodoList?> TodoLists => Set<TodoList>();
 
     public DbSet<TodoItem> TodoItems => Set<TodoItem>();
 

@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Study.CleanArchitecture.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Study.CleanArchitecture.Infrastructure.Shared", "src\Study.CleanArchitecture.Infrastructure.Shared\Study.CleanArchitecture.Infrastructure.Shared.csproj", "{9841E320-19E0-4BCF-A284-DD1BB0F579C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Study.CleanArchitecture.Shared", "Study.CleanArchitecture.Shared", "{B192D47C-3A48-40AE-96AF-E021D230E4A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,7 @@ Global
 		{EA056C44-251F-4610-844B-984216365315} = {68B83B88-38F4-4CCC-88B1-4C39E3B1BCC9}
 		{18293A32-E1FB-4F24-976E-322967726622} = {EA056C44-251F-4610-844B-984216365315}
 		{9841E320-19E0-4BCF-A284-DD1BB0F579C5} = {EA056C44-251F-4610-844B-984216365315}
+		{B192D47C-3A48-40AE-96AF-E021D230E4A2} = {68B83B88-38F4-4CCC-88B1-4C39E3B1BCC9}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4393AEE9-184E-4243-9EA6-77DF15DBF672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

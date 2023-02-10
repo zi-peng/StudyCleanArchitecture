@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Study.CleanArchitecture.Application.Common.Exceptions;
 using Study.CleanArchitecture.Application.Interfaces;
 using Study.CleanArchitecture.Domain.Entities;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
 
 namespace Study.CleanArchitecture.Application.Services.TodoLists.Commands.DeleteTodoList;
 

@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Study.CleanArchitecture.Application.Common.Exceptions;
+using Study.CleanArchitecture.Domain.Exceptions;
 
 namespace Study.CleanArchitecture.WebAPI.Filters;
 
+/// <summary>
+/// API 异常过滤器
+/// </summary>
 public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
 {
     private readonly IDictionary<Type, Action<ExceptionContext>> _exceptionHandlers;
@@ -12,12 +16,13 @@ public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {
         // Register known exception types and handlers.
         _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
-            {
-                { typeof(ValidationException), HandleValidationException },
-                { typeof(NotFoundException), HandleNotFoundException },
-                { typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
-                { typeof(ForbiddenAccessException), HandleForbiddenAccessException },
-            };
+        {
+            { typeof(ValidationException), HandleValidationException },
+            { typeof(NotFoundException), HandleNotFoundException },
+            { typeof(BusinessRuleValidationException), HandleRuleException },
+            { typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
+            { typeof(ForbiddenAccessException), HandleForbiddenAccessException },
+        };
     }
 
     public override void OnException(ExceptionContext context)
@@ -29,20 +34,31 @@ public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
 
     private void HandleException(ExceptionContext context)
     {
-        Type type = context.Exception.GetType();
+        var type = context.Exception.GetType();
         if (_exceptionHandlers.ContainsKey(type))
         {
             _exceptionHandlers[type].Invoke(context);
             return;
         }
 
-        if (!context.ModelState.IsValid)
-        {
-            HandleInvalidModelStateException(context);
-            return;
-        }
+        if (context.ModelState.IsValid) return;
+        HandleInvalidModelStateException(context);
     }
+    private void HandleRuleException(ExceptionContext context)
+    {
+        var exception = (BusinessRuleValidationException)context.Exception;
 
+        var details = new ValidationProblemDetails()
+        {
+            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+            Title = "The specified resource was not found.",
+            Detail = exception.Message
+        };
+
+        context.Result = new BadRequestObjectResult(details);
+
+        context.ExceptionHandled = true;
+    }
     private void HandleValidationException(ExceptionContext context)
     {
         var exception = (ValidationException)context.Exception;

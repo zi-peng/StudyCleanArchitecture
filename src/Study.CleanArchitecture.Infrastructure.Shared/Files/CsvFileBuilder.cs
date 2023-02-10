@@ -3,7 +3,7 @@ using CsvHelper;
 using Study.CleanArchitecture.Application.Interfaces;
 using Study.CleanArchitecture.Application.Services.TodoLists.Queries.ExportTodos;
 
-namespace Study.CleanArchitecture.Infrastructure.Data.Files;
+namespace Study.CleanArchitecture.Infrastructure.Shared.Files;
 
 public class CsvFileBuilder : ICsvFileBuilder
 {

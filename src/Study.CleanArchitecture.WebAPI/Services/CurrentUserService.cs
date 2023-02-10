@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using Study.CleanArchitecture.Application.Interfaces;
+﻿using Study.CleanArchitecture.Application.Interfaces;
 
 namespace Study.CleanArchitecture.WebAPI.Services;
 

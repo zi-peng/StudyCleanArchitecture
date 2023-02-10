@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Study.CleanArchitecture.Application.Interfaces;
-using Study.CleanArchitecture.Infrastructure.Data.Files;
-using Study.CleanArchitecture.Infrastructure.Data.Services;
+using Study.CleanArchitecture.Infrastructure.Shared.Files;
+using Study.CleanArchitecture.Infrastructure.Shared.Services;
 
 namespace Study.CleanArchitecture.Infrastructure.Shared;
 
