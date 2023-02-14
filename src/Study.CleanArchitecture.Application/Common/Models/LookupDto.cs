@@ -1,6 +1,5 @@
 ﻿using Study.CleanArchitecture.Application.Common.Mappings;
-using Study.CleanArchitecture.Domain.Entities;
-using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 
 namespace Study.CleanArchitecture.Application.Common.Models;
 

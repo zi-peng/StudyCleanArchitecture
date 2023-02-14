@@ -18,7 +18,6 @@ builder.Services.AddInfrastructureSharedServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

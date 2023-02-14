@@ -2,10 +2,20 @@
 using Study.CleanArchitecture.Domain.Enums;
 using Study.CleanArchitecture.Domain.Events;
 
-namespace Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+namespace Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 
 public class TodoItem : BaseAuditableEntity
 {
+    
+    public TodoItem(int listId, string title, bool done)
+    {
+        ListId = listId;
+        Title = title;
+        Done = done;
+    }
+
+    private bool _done;
+
     public int ListId { get; set; }
 
     public string? Title { get; set; }
@@ -16,16 +26,12 @@ public class TodoItem : BaseAuditableEntity
 
     public DateTime? Reminder { get; set; }
 
-    private bool _done;
     public bool Done
     {
         get => _done;
         set
         {
-            if (value == true && _done == false)
-            {
-                AddDomainEvent(new TodoItemCompletedEvent(this));
-            }
+            if (value && _done == false) AddDomainEvent(new TodoItemCompletedEvent(this));
 
             _done = value;
         }

@@ -8,21 +8,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="7.0.2" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2"/>
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="7.0.2"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Study.CleanArchitecture.Infrastructure.Data\Study.CleanArchitecture.Infrastructure.Data.csproj" />
-      <ProjectReference Include="..\Study.CleanArchitecture.Infrastructure.Shared\Study.CleanArchitecture.Infrastructure.Shared.csproj" />
+        <ProjectReference Include="..\Study.CleanArchitecture.Infrastructure.Data\Study.CleanArchitecture.Infrastructure.Data.csproj"/>
+        <ProjectReference Include="..\Study.CleanArchitecture.Infrastructure.Shared\Study.CleanArchitecture.Infrastructure.Shared.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="Application.IntegrationTests"/>
+    </ItemGroup>
 </Project>

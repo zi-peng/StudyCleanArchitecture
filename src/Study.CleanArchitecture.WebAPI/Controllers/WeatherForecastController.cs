@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Study.CleanArchitecture.Application.Services.TodoLists.Commands.CreateTodoList;
 using Study.CleanArchitecture.Application.Services.WeatherForecasts.Queries.GetWeatherForecasts;
@@ -18,7 +17,7 @@ public class WeatherForecastController : ApiControllerBase
     public async Task<IEnumerable<WeatherForecast>?> Get()
     {
         var request = new CreateTodoListCommand();
-        
+
         await Mediator.Send(request);
         return default;
     }

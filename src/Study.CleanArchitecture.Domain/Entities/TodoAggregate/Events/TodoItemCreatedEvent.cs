@@ -1,6 +1,6 @@
 ﻿using Study.CleanArchitecture.Domain.Common;
 
-namespace Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot.Events;
+namespace Study.CleanArchitecture.Domain.Entities.TodoAggregate.Events;
 
 public class TodoListCreatedEvent : BaseEvent
 {

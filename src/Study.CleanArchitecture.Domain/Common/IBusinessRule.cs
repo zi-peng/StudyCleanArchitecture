@@ -1,9 +1,7 @@
-﻿namespace Study.CleanArchitecture.Domain.Common
-{
-    public interface IBusinessRule
-    {
-        bool IsBroken();
+﻿namespace Study.CleanArchitecture.Domain.Common;
 
-        string Message { get; }
-    }
+public interface IBusinessRule
+{
+    string Message { get; }
+    bool IsBroken();
 }

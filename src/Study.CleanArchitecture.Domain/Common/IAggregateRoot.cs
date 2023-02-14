@@ -1,9 +1,8 @@
-﻿namespace Study.CleanArchitecture.Domain.Common
+﻿namespace Study.CleanArchitecture.Domain.Common;
+
+/// <summary>
+/// 聚合根
+/// </summary>
+public interface IAggregateRoot
 {
-    /// <summary>
-    /// 聚合根
-    /// </summary>
-    public interface IAggregateRoot
-    {
-    }
 }

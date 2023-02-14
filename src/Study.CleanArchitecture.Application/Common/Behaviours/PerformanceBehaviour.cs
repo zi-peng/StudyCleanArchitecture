@@ -8,9 +8,9 @@ namespace Study.CleanArchitecture.Application.Common.Behaviours;
 public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
-    private readonly Stopwatch _timer;
-    private readonly ILogger<TRequest> _logger;
     private readonly ICurrentUserService _currentUserService;
+    private readonly ILogger<TRequest> _logger;
+    private readonly Stopwatch _timer;
 
     public PerformanceBehaviour(
         ILogger<TRequest> logger,
@@ -41,10 +41,8 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
             var userName = string.Empty;
 
             if (!string.IsNullOrEmpty(userId))
-            {
                 //TODO  需要获得真实的名称
                 userName = "测试名称";
-            }
 
             _logger.LogWarning(
                 "CleanArchitecture Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",

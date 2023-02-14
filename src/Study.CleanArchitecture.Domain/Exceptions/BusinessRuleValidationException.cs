@@ -1,23 +1,22 @@
 ﻿using Study.CleanArchitecture.Domain.Common;
 
-namespace Study.CleanArchitecture.Domain.Exceptions
+namespace Study.CleanArchitecture.Domain.Exceptions;
+
+public class BusinessRuleValidationException : Exception
 {
-    public class BusinessRuleValidationException : Exception
+    public BusinessRuleValidationException(IBusinessRule brokenRule)
+        : base(brokenRule.Message)
     {
-        public IBusinessRule BrokenRule { get; }
+        BrokenRule = brokenRule;
+        Details = brokenRule.Message;
+    }
 
-        public string Details { get; }
+    public IBusinessRule BrokenRule { get; }
 
-        public BusinessRuleValidationException(IBusinessRule brokenRule)
-            : base(brokenRule.Message)
-        {
-            BrokenRule = brokenRule;
-            this.Details = brokenRule.Message;
-        }
+    public string Details { get; }
 
-        public override string ToString()
-        {
-            return $"{BrokenRule.GetType().FullName}: {BrokenRule.Message}";
-        }
+    public override string ToString()
+    {
+        return $"{BrokenRule.GetType().FullName}: {BrokenRule.Message}";
     }
 }

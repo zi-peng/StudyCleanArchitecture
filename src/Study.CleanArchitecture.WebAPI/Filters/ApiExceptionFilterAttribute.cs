@@ -21,7 +21,7 @@ public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
             { typeof(NotFoundException), HandleNotFoundException },
             { typeof(BusinessRuleValidationException), HandleRuleException },
             { typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
-            { typeof(ForbiddenAccessException), HandleForbiddenAccessException },
+            { typeof(ForbiddenAccessException), HandleForbiddenAccessException }
         };
     }
 
@@ -44,11 +44,12 @@ public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
         if (context.ModelState.IsValid) return;
         HandleInvalidModelStateException(context);
     }
+
     private void HandleRuleException(ExceptionContext context)
     {
         var exception = (BusinessRuleValidationException)context.Exception;
 
-        var details = new ValidationProblemDetails()
+        var details = new ValidationProblemDetails
         {
             Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1",
             Title = "The specified resource was not found.",
@@ -59,6 +60,7 @@ public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
 
         context.ExceptionHandled = true;
     }
+
     private void HandleValidationException(ExceptionContext context)
     {
         var exception = (ValidationException)context.Exception;
@@ -89,7 +91,7 @@ public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {
         var exception = (NotFoundException)context.Exception;
 
-        var details = new ProblemDetails()
+        var details = new ProblemDetails
         {
             Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
             Title = "The specified resource was not found.",

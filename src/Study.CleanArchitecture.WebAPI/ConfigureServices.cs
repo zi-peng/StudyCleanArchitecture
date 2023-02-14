@@ -27,7 +27,7 @@ public static class ConfigureServices
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateAudience = false,
-                    ValidateIssuer = false,
+                    ValidateIssuer = false
                 };
             });
 

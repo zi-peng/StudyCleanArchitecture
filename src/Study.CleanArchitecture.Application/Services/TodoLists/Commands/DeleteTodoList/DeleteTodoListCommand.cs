@@ -2,8 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Study.CleanArchitecture.Application.Common.Exceptions;
 using Study.CleanArchitecture.Application.Interfaces;
-using Study.CleanArchitecture.Domain.Entities;
-using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 
 namespace Study.CleanArchitecture.Application.Services.TodoLists.Commands.DeleteTodoList;
 
@@ -24,10 +23,7 @@ public class DeleteTodoListCommandHandler : IRequestHandler<DeleteTodoListComman
             .Where(l => l.Id == request.Id)
             .SingleOrDefaultAsync(cancellationToken);
 
-        if (entity == null)
-        {
-            throw new NotFoundException(nameof(TodoList), request.Id);
-        }
+        if (entity == null) throw new NotFoundException(nameof(TodoList), request.Id);
 
         _context.TodoLists.Remove(entity);
 

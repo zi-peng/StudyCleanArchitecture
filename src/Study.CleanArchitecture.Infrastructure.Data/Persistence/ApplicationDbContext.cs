@@ -1,10 +1,9 @@
 ﻿using System.Reflection;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Study.CleanArchitecture.Application.Interfaces;
-using Study.CleanArchitecture.Domain.Entities;
-using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregate;
+using Study.CleanArchitecture.Domain.ValueObjects;
 using Study.CleanArchitecture.Infrastructure.Data.Common;
 using Study.CleanArchitecture.Infrastructure.Data.Persistence.Interceptors;
 
@@ -14,6 +13,11 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
     private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
     private readonly IMediator _mediator;
+
+
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+    }
 
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options,
@@ -25,7 +29,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
     }
 
-    public DbSet<TodoList?> TodoLists => Set<TodoList>();
+    public DbSet<TodoList> TodoLists => Set<TodoList>();
 
     public DbSet<TodoItem> TodoItems => Set<TodoItem>();
 
@@ -39,7 +43,6 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
         base.OnModelCreating(builder);
     }
 

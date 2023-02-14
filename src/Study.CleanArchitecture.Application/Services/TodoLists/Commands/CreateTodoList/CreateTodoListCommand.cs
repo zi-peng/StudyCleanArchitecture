@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Study.CleanArchitecture.Application.Interfaces;
-using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 
 namespace Study.CleanArchitecture.Application.Services.TodoLists.Commands.CreateTodoList;
 
@@ -21,7 +21,7 @@ public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListComman
     public async Task<int> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
     {
         var entity = new TodoList(request.Title);
-        
+
         _context.TodoLists.Add(entity);
 
         await _context.SaveChangesAsync(cancellationToken);

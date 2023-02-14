@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 using Study.CleanArchitecture.Infrastructure.Data.Persistence;
 
 namespace Study.CleanArchitecture.Infrastructure.Data.Repository;

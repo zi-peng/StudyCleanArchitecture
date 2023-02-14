@@ -1,4 +1,4 @@
-namespace Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+namespace Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 
 public interface ITodoListRepository
 {

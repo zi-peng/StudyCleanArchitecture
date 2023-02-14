@@ -5,9 +5,8 @@ namespace Study.CleanArchitecture.Domain.Common;
 
 public abstract class BaseEntity
 {
-    public int Id { get; set; }
-
     private readonly List<BaseEvent> _domainEvents = new();
+    public int Id { get; set; }
 
     [NotMapped] public IReadOnlyCollection<BaseEvent> DomainEvents => _domainEvents.AsReadOnly();
 
@@ -33,9 +32,6 @@ public abstract class BaseEntity
     /// <exception cref="BusinessRuleValidationException"></exception>
     protected void CheckRule(IBusinessRule rule)
     {
-        if (rule.IsBroken())
-        {
-            throw new BusinessRuleValidationException(rule);
-        }
+        if (rule.IsBroken()) throw new BusinessRuleValidationException(rule);
     }
 }

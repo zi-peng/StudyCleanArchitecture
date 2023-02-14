@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Study.CleanArchitecture.Application\Study.CleanArchitecture.Application.csproj" />
+        <ProjectReference Include="..\Study.CleanArchitecture.Application\Study.CleanArchitecture.Application.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CsvHelper" Version="30.0.1" />
+        <PackageReference Include="CsvHelper" Version="30.0.1"/>
     </ItemGroup>
 
 </Project>

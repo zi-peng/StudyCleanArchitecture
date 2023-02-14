@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MySql.EntityFrameworkCore.Extensions;
 
 namespace Study.CleanArchitecture.Infrastructure.Data.Persistence;
 

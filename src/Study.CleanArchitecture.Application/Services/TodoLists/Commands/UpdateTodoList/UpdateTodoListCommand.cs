@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using Study.CleanArchitecture.Application.Common.Exceptions;
 using Study.CleanArchitecture.Application.Interfaces;
-using Study.CleanArchitecture.Domain.Entities;
-using Study.CleanArchitecture.Domain.Entities.TodoAggregateRoot;
+using Study.CleanArchitecture.Domain.Entities.TodoAggregate;
 
 namespace Study.CleanArchitecture.Application.Services.TodoLists.Commands.UpdateTodoList;
 
@@ -27,10 +26,7 @@ public class UpdateTodoListCommandHandler : IRequestHandler<UpdateTodoListComman
         var entity = await _context.TodoLists
             .FindAsync(new object[] { request.Id }, cancellationToken);
 
-        if (entity == null)
-        {
-            throw new NotFoundException(nameof(TodoList), request.Id);
-        }
+        if (entity == null) throw new NotFoundException(nameof(TodoList), request.Id);
 
         entity.Title = request.Title;
 
